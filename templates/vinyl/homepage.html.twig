@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+{% block title %}My First Symfony page @ {{ parent() }}{% endblock %}
+{% block body %}
+
+    <h1>{{ name }} is learning {{ tech }}!</h1>
+    <div>
+        <p>Since {{ name }} has experience with following languages {{ tech }} seems like the perfect fit!</p>
+        <ul>
+            {% for language in languages %}
+                <li>{{ language }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+    <div>
+        <p>Although there are some other technologies {{ name }} would like to improve upon as well!</p>
+        <ul>
+            {% for technology in technologies %}
+                <li>{{ technology }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+
+{% endblock %}

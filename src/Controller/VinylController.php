@@ -2,16 +2,20 @@
 
 namespace App\Controller;
 
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use function Symfony\Component\String\u;
 
-class VinylController
+class VinylController extends AbstractController
 {
     #[Route('/')]
     public function homepage(): Response
     {
-        return new Response('I are a HttpFoundation Response from homepageController in symfony');
+        $languages = ['PHP', 'JavaScript', 'Swift', 'HTML', '(S)CSS/SASS', 'TypeScript', 'Bash', 'SQL'];
+        $technologies = ['ReactJS', 'Angular', 'SwiftUI', 'NodeJS', 'ExpressJS', 'MariaDB', 'TailwindCSS'];
+
+        return $this->render('vinyl/homepage.html.twig', ['name' => 'Yasser', 'tech' => 'Symfony 6', 'languages' => $languages, 'technologies' => $technologies]);
     }
     //Instead of using this extra route the parameter in the category route is optional now
 //    #[Route('/browse')]
