@@ -16,8 +16,8 @@ class SongController extends AbstractController
             'controller_name' => 'SongController',
         ]);
     }
-    #[Route('/api/songs/{id}', name: 'app_api_getsong', methods: 'GET')]
-    public function getSong($id): Response
+    #[Route('/api/songs/{id<\d+>}', name: 'app_api_getsong', methods: 'GET')]
+    public function getSong(int $id): Response
     {
         //TODO:: Query to database
         $song = [
